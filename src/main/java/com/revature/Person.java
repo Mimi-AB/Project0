@@ -10,6 +10,7 @@ public class Person implements Serializable
     private String password;
     private String email;
 
+
     public Person ()
     {
 
@@ -22,6 +23,7 @@ public class Person implements Serializable
         this.username = username;
         this.password = password;
         this.email = email;
+
     }
 
 
@@ -74,4 +76,5 @@ public class Person implements Serializable
     {
         this.email = email;
     }
+
 }

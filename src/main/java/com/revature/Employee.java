@@ -6,7 +6,7 @@ public class Employee extends Person implements Serializable
 {
     private int empID;
     private String jobTitle;
-    private String AccNum;
+
 
     public Employee()
     {
@@ -40,15 +40,6 @@ public class Employee extends Person implements Serializable
         this.jobTitle = jobTitle;
     }
 
-    public String getAccNum()
-    {
-        return AccNum;
-    }
-
-    public void setAccNum(String accNum)
-    {
-        AccNum = accNum;
-    }
     public void AppDny()
     {
 

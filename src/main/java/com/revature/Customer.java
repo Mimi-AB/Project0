@@ -1,13 +1,18 @@
 package com.revature;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Customer extends Person implements Serializable
 {
     private long taxID;
+    private String annIncome;
+    private boolean employed;
     private String occupation;
     private String accType;
     private double balance;
+    private long accNum;
+    Scanner sc = new Scanner(System.in);
 
     public Customer ()
     {
@@ -20,6 +25,8 @@ public class Customer extends Person implements Serializable
         this.taxID = taxID;
         this.accType = accType;
         this.occupation = occupation;
+        this.employed = employed;
+        this.annIncome = annIncome;
     }
 
     public long getTaxID()
@@ -62,21 +69,65 @@ public class Customer extends Person implements Serializable
         this.balance = balance;
     }
 
+    public long getAccNum() { return accNum; }
+
+    public void setAccNum(long accNum) { this.accNum = accNum; }
+
+    public String getAnnIncome()
+    {
+        return annIncome;
+    }
+
+    public void setAnnIncome(String annIncome)
+    {
+        this.annIncome = annIncome;
+    }
+
+    public boolean isEmployed()
+    {
+        return employed;
+    }
+
+    public void setEmployed(boolean employed)
+    {
+        this.employed = employed;
+    }
+
     public void Register()
     {
+        System.out.println("Hello! Thank you for choosing MightBeAScam Bank!");
+        System.out.println("Enter your First Name:  ");
+        String fName = sc.next();
+
+        System.out.println("Enter your Last Name:  ");
+        String lName = sc.next();
+
+        System.out.println("Enter your Email Address:  ");
+        String email = sc.next();
+
+        System.out.println("Enter your Social Security Number:  ");
+        long taxID = Long.parseLong(sc.next());
+
+        System.out.println("What is your current job tile?  ");
+        String occupation = sc.next();
+
+        System.out.println("What type of account would you like to open?  ");
+        String accType = sc.next();
+
+        System.out.println("Thank you, If you are approved the administrator will send you an email with your account details.");
 
     }
 
     public void Withdraw()
     {
-
+        System.out.println();
     }
     public void Deposit()
     {
-
+        System.out.println();
     }
     public void Transfer()
     {
-
+        System.out.println();
     }
 }

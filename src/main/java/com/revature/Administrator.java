@@ -27,6 +27,10 @@ public class Administrator extends Person implements Serializable
     {
         this.adminID = adminID;
     }
+    public void viewEmploy()
+    {
+
+    }
     public void AppDny()
     {
 
