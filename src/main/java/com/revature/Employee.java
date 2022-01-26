@@ -20,6 +20,35 @@ public class Employee extends Person implements Serializable
         this.jobTitle = jobTitle;
     }
 
+    public int getEmpID()
+    {
+        return empID;
+    }
+
+    public void setEmpID(int empID)
+    {
+        this.empID = empID;
+    }
+
+    public String getJobTitle()
+    {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle)
+    {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getAccNum()
+    {
+        return AccNum;
+    }
+
+    public void setAccNum(String accNum)
+    {
+        AccNum = accNum;
+    }
     public void AppDny()
     {
 
