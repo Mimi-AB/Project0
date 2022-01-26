@@ -2,14 +2,16 @@ package com.revature;
 
 public class Person
 {
+    private int id;
     private String fName;
     private String lName;
     private String username;
     private String password;
     private String email;
 
-    public Person(String fName, String lName, String username, String password, String email)
+    public Person(int id, String fName, String lName, String username, String password, String email)
     {
+        this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.username = username;
