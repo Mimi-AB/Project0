@@ -1,23 +1,29 @@
 package com.revature;
 
-public class Person
+import java.io.Serializable;
+
+public class Person implements Serializable
 {
-    private int id;
     private String fName;
     private String lName;
     private String username;
     private String password;
     private String email;
 
-    public Person(int id, String fName, String lName, String username, String password, String email)
+    public Person ()
     {
-        this.id = id;
+
+    }
+
+    public Person(String fName, String lName, String username, String password, String email)
+    {
         this.fName = fName;
         this.lName = lName;
         this.username = username;
         this.password = password;
         this.email = email;
     }
+
 
     public String getfName()
     {
