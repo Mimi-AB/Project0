@@ -108,13 +108,42 @@ public class Customer extends Person implements Serializable
         System.out.println("Enter your Social Security Number:  ");
         long taxID = Long.parseLong(sc.next());
 
+        System.out.println("Are you employed? (yes/no)  ");
+        String answer = sc.next();
+        if(answer == "yes")
+        if(answer == "Yes")
+        if(answer == "YES")
+        {
+            employed = true;
+        }
+        else if(answer == "no")
+        if(answer == "No")
+        if(answer =="NO")
+        {
+            employed = false;
+        }
+        else
+        {
+            System.out.println("Unrecognized answer, try again");
+        }
+
+
         System.out.println("What is your current job tile?  ");
         String occupation = sc.next();
 
         System.out.println("What type of account would you like to open?  ");
         String accType = sc.next();
-
-        System.out.println("Thank you, If you are approved the administrator will send you an email with your account details.");
+        switch(accType)
+        {
+            case "Checking":
+            case "checking":
+            case "Savings":
+            case "savings":
+                System.out.println("Thank you, If you are approved the administrator will send you an email with your account details.");
+                break;
+            default:
+                System.out.println("Unrecognized answer, try again");
+        }
 
     }
 
