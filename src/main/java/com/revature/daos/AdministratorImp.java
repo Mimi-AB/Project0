@@ -153,7 +153,7 @@ public class AdministratorImp implements AdministratorDAO
     @Override
     public boolean deleteCustomer(Customer cu)
     {
-        String sql = "delete from account where id = ?;";
+        String sql = "delete from account where taxID = ?";
         try(Connection c = ConnectionUtil.getConnection();
             PreparedStatement ps = c.prepareStatement(sql)){
             ps.setLong(1, cu.getTaxID());

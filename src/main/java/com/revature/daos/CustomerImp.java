@@ -41,7 +41,7 @@ public class CustomerImp implements CustomerDAO
     @Override
     public boolean accSetup(Customer cu)
     {
-        String sql = "update account set accNum = ?, username = ?, password = ?, balance = ?, savings = ?, where id = ?";
+        String sql = "update account set accNum = ?, username = ?, password = ?, balance = ?, savings = ?, where taxID = ?";
         try (Connection c = ConnectionUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql);)
         {
