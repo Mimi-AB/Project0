@@ -1,5 +1,5 @@
 //Think about creating an interface to implement all the methods from customer + employee to put into Admin
-package com.revature;
+package com.revature.models;
 
 import java.io.Serializable;
 
@@ -12,9 +12,9 @@ public class Administrator extends Person implements Serializable
 
     }
 
-    public Administrator(String fName, String lName, String username, String password, String email, int adminID)
+    public Administrator(Type type, String fName, String lName, String username, String password, String email, int adminID)
     {
-        super(fName, lName, username, password, email);
+        super(type, fName, lName, username, password, email);
         this.adminID = adminID;
     }
 
@@ -27,10 +27,12 @@ public class Administrator extends Person implements Serializable
     {
         this.adminID = adminID;
     }
+
     public void viewEmploy()
     {
 
     }
+
     public void AppDny()
     {
 
@@ -40,24 +42,30 @@ public class Administrator extends Person implements Serializable
     {
 
     }
+
     public void viewAccPI()
     {
 
     }
+
     public void Withdraw()
     {
 
     }
+
     public void Deposit()
     {
 
     }
+
     public void Transfer()
     {
 
     }
+
     public void Cancel()
     {
 
     }
+
 }

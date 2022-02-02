@@ -1,4 +1,4 @@
-package com.revature;
+package com.revature.models;
 
 import java.io.Serializable;
 
@@ -9,6 +9,7 @@ public class Person implements Serializable
     private String username;
     private String password;
     private String email;
+    private Type type;
 
 
     public Person ()
@@ -16,13 +17,14 @@ public class Person implements Serializable
 
     }
 
-    public Person(String fName, String lName, String username, String password, String email)
+    public Person(Type type, String fName, String lName, String username, String password, String email)
     {
         this.fName = fName;
         this.lName = lName;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.type = type;
 
     }
 
@@ -75,6 +77,17 @@ public class Person implements Serializable
     public void setEmail(String email)
     {
         this.email = email;
+    }
+
+    public Type getType() { return type; }
+
+    public void setType(Type type) { this.type = type; }
+
+    @Override
+    public String toString()
+    {
+        return "Person {Type: " + type + " Name: " + fName + " " + lName +
+                " Email: " + email + " Username: " + username + " Password: " + password +"}";
     }
 
 }

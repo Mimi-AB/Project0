@@ -1,4 +1,4 @@
-package com.revature;
+package com.revature.models;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -11,24 +11,32 @@ public class Customer extends Person implements Serializable
     private String occupation;
     private String accType;
     private double balance;
-    private long accNum;
+    private String accNum;
     private double savings;
     Scanner sc = new Scanner(System.in);
+
+
+    //Constructors
 
     public Customer ()
     {
 
     }
-
-    public Customer(String fName, String lName, String username, String password, String email, long taxID, String accType, String occupation)
+    public Customer(Type type, String fName, String lName, String email, long taxID, boolean employed, String occupation, double annIncome, String accType, String accNum, String username, String password, double balance, double savings)
     {
-        super(fName, lName, username, password, email);
+        super(type, fName, lName, username, password, email);
         this.taxID = taxID;
         this.accType = accType;
         this.occupation = occupation;
         this.employed = employed;
         this.annIncome = annIncome;
+        this.balance = balance;
+        this.savings = savings;
+        this.accNum = accNum;
     }
+
+
+    //Getters and Setters
 
     public long getTaxID()
     {
@@ -70,17 +78,24 @@ public class Customer extends Person implements Serializable
         this.balance = balance;
     }
 
-    public long getAccNum() { return accNum; }
+    public String getAccNum() { return accNum; }
 
-    public void setAccNum(long accNum) { this.accNum = accNum; }
+    public void setAccNum(String accNum) { this.accNum = accNum; }
 
     public double getAnnIncome() {return annIncome;}
 
     public void setAnnIncome(double annIncome) {this.annIncome = annIncome;}
 
-    public boolean isEmployed() {return employed;}
+    public boolean isEmployed() { return employed; }
 
-    public void setEmployed(boolean employed) {this.employed = employed;}
+    public void setEmployed(boolean employed) { this.employed = employed; }
+
+    public double getSavings() { return savings; }
+
+    public void setSavings(double savings) { this.savings = savings; }
+
+
+    //Methods
 
     public void Register()
     {
@@ -149,16 +164,22 @@ public class Customer extends Person implements Serializable
     public void accSetup()
     {
         System.out.println("Enter Account Number: ");
-        long accNum = Long.parseLong(sc.next());
+        String accNum = sc.next();
         System.out.println("Set Username: ");
         String username = sc.next();
         System.out.println("Set Password: ");
         String password = sc.next();
-        balance = 0.00;
-        savings = 0.00;
         System.out.println("Please deposit money into your account to activate.");
     }
+    public void Deposit()
+    {
+        System.out.println("Enter the amount that you would like to deposit: ");
+        double depositAmt = Double.parseDouble(sc.next());
+        //String sql = "insert into BankStatement (";
+        balance = balance + depositAmt;
+        System.out.println("Your current balance is: $" + balance);
 
+    }
     public void Withdraw()
     {
         System.out.println("Enter the amount that you would like to withdraw: ");
@@ -173,21 +194,12 @@ public class Customer extends Person implements Serializable
             System.out.println("Transaction Failed :(");
         }
     }
-    public void Deposit()
-    {
-        System.out.println("Enter the amount that you would like to deposit: ");
-        double depositAmt = Double.parseDouble(sc.next());
-        balance = balance + depositAmt;
-        System.out.println("Your current balance is: $" + balance);
 
-    }
-    //Transfer Method not working. program is ignoring 'if-else' statement
     public void Transfer()
     {
         System.out.println("Which account do you want to transfer funds to?  ");
         String whichAcc = sc.next();
-        if (whichAcc.equals("Savings"))
-        if(whichAcc.equals("savings"))
+        if(whichAcc.equals("savings") || whichAcc.equals("Savings"))
         {
             System.out.println("How much would you like to transfer? ");
             double transferAmt = Double.parseDouble(sc.next());
@@ -195,15 +207,14 @@ public class Customer extends Person implements Serializable
             {
                 balance = balance - transferAmt;
                 savings = savings + transferAmt;
-                System.out.println("Your current balance is: $"+ balance);
-                System.out.println("Your current savings are: $"+ savings);
+                System.out.println("Your current balance is: $"+ String.format("%.2f" , balance));
+                System.out.println("Your current savings are: $"+ String.format("%.2f" , savings));
             } else {
                 System.out.println("You only have $"+ balance + " in your checking account available for transfer");
                 System.out.println("Transaction Failed :(");
             }
         }
-        else if (whichAcc.equals("Checking"))
-             if (whichAcc.equals("checking"))
+        else if (whichAcc.equals("checking") || whichAcc.equals("Checking"))
         {
             System.out.println("How much would you like to transfer? ");
             double transferAmt = Double.parseDouble(sc.next());
@@ -211,8 +222,8 @@ public class Customer extends Person implements Serializable
             {
                 savings = savings - transferAmt;
                 balance = balance + transferAmt;
-                System.out.println("Your current balance is: $"+ balance);
-                System.out.println("Your current savings are: $"+ savings);
+                System.out.println("Your current balance is: $"+ String.format("%.2f" , balance));
+                System.out.println("Your current savings are: $"+ String.format("%.2f" , savings));
             }else {
                 System.out.println("You only have $"+ savings + " in your savings available for transfer");
                 System.out.println("Transaction Failed :(");
